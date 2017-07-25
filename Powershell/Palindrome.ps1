@@ -1,12 +1,13 @@
 param($isPalindrome)
 
 $isPalindrome = $isPalindrome.ToLower()
-
+$isPalindrome = $isPalindrome -replace "[^a-zA-Z0-9]","";
 $palindrome = $true
 
-if($isPalindrome.Length -lt 2)
+
+if($isPalindrome.Length -eq 1)
 {
- return $false
+return $true
 }
 
 for($i=0;$i -lt ($isPalindrome.Length/2); $i++)
@@ -14,7 +15,7 @@ for($i=0;$i -lt ($isPalindrome.Length/2); $i++)
 
 if($isPalindrome[$i] -ne $isPalindrome[($isPalindrome.Length - $i -1)])
 {
-return $palindrome = $false
+$palindrome = $false
 }
 }
 
